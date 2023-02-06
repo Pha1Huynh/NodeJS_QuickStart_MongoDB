@@ -1,13 +1,13 @@
 import express from "express";
-import homeController from "../controller/homeController";
+import courseController from "../controllers/courseController";
 let router = express.Router();
-
+import Course from "../models/Course";
 let initWebRoutes = (app) => {
-  router.get("/", (req, res) => {
-    return res.send("hello world");
+  router.get("/", async (req, res) => {
+    return res.render("homePage.ejs", {
+      data: await courseController.getAllCourse(),
+    });
   });
-
-  router.get("/homePage", homeController.getHomePage);
 
   return app.use("/", router);
 };
