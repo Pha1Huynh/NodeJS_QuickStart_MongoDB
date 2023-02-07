@@ -14,7 +14,6 @@ let getAllCourse = () => {
       } else {
         resolve({ errCode: 0, errMessage: "Getting ...." });
       }
-      resolve();
     } catch (e) {
       reject(e);
     }
